@@ -1,0 +1,112 @@
+@import "compass/css3";
+
+// ************** Compass Import **************
+
+@import "compass/typography";
+  
+  
+// ************** Mixin **************
+@mixin basicDiv{
+  width: 400px;
+  border-radius:5px;
+  padding:15px;
+  margin: 15px;
+}
+
+// ************** Color Map **************
+$colors:(
+  background:#98FB98,
+  header:#FFFFFF,
+  section:#000000,
+  select:#FFFF00,
+);
+
+/****** Cusom styles ******/
+html, body{
+  width:100%;
+  background:map-get($colors, background);
+}
+
+header{
+  width:100%;
+  background:map-get($colors, header);
+  margin:0 0 30px 0;
+  padding:5px 0 5px 0;
+  ul{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    padding:25px;
+    font-family: 'Indie Flower', cursive;
+    li{
+      @include no-bullets;
+      padding-left:15px;
+      padding-right:15px;
+      font-size: 2em;
+      color:shade(map-get($colors, background),75%);
+      font-weight:bold;
+      &:hover{
+        background:map-get($colors, select);
+        border-radius:10px;
+      }
+    }
+  }
+}
+
+.head{
+  width:60%;
+  margin:50px auto;
+  text-align:center;
+  h1{
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+section{
+  width:90%;
+  margin:0 auto;
+  font-size:1em;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  p{
+    color:map-get($colors, header);
+    font-family: 'Indie Flower', cursive;
+  }
+}
+
+.simpsons{
+  background:rgba(map-get($colors, section), 0.5);
+  @include basicDiv;
+  .homer{
+    shape-outside:circle(50%);
+    shape-image-threshold: 0.2;
+    float:left;
+    padding-right: 5px;
+  }
+}
+
+.griffins{
+  background:rgba(map-get($colors, section), 0.5);
+  @include basicDiv;
+  .peter{
+    shape-outside:circle();
+    shape-image-threshold: 0.2;
+    float:right;
+  }
+}
+
+.futurama{
+  background:rgba(map-get($colors, section), 0.5);
+  @include basicDiv;
+  .fry{
+    shape-outside:url(http://i291.photobucket.com/albums/ll300/LucidFlight_album/Futurama-Fry-psd72597.png);
+    shape-image-threshold: .1;
+    float:left;
+  }
+}
